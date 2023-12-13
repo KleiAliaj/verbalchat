@@ -10,25 +10,23 @@ import {
 import { linkDetails } from "./__linkDetails";
 
 const CollapseMenu = ({ isOpen, setOpen }) => {
+  const bgColor = useColorModeValue("blue.300", "gray.600"); // Lighter blue for light mode, slightly darker for dark mode
+
   return (
     <React.Fragment>
-      <Collapse in={isOpen}>
+      <Collapse in={isOpen} animateOpacity>
         <Box
-          display={{ md: "none", sm: "flex", xs: "flex" }}
+          display={{ base: "flex", md: "none" }} // Simplified display property
           flexDir="column"
-          m="5"
-          p="5"
-          backdropFilter="blur(4px)"
-          borderRadius="md"
+          m={5}
+          p={5}
+          backdropFilter="blur(6px)" // Increased blur for better readability
+          borderRadius="lg" // Larger radius for a softer look
           minH="lg"
           justifyContent="space-between"
-          bg={useColorModeValue("blue.500", "gray.700")}
+          bg={bgColor}
         >
-          <Stack
-            display={{ md: "none", sm: "flex", xs: "flex" }}
-            flexDir="column"
-            w="full"
-          >
+          <Stack flexDir="column" w="full" spacing={4}> {/* Added spacing for better visual separation */}
             {linkDetails.map((item, index) => (
               <Button
                 key={index}
@@ -36,7 +34,6 @@ const CollapseMenu = ({ isOpen, setOpen }) => {
                 variant="ghost"
                 size="sm"
                 onClick={setOpen}
-                // colorScheme="teal"
                 href={item.link}
                 _focus={{ boxShadow: "outline" }}
               >
@@ -44,28 +41,14 @@ const CollapseMenu = ({ isOpen, setOpen }) => {
               </Button>
             ))}
           </Stack>
-          <ButtonGroup display={{ sm: "flex", xs: "flex" }}>
-            {/* <Button
-              as="a"
-              target="_blank"
-              href="/resume"
-              border="2px"
-              variant="outline"
-              size="sm"
-              onClick={setOpen}
-              colorScheme="teal"
-              _focus={{ boxShadow: "outline" }}
-            >
-              Resume
-            </Button> */}
+          <ButtonGroup variant="outline" spacing={4}> {/* Added variant and spacing */}
             <Button
               as="a"
               href="https://cal.com/verbal/"
               target="_blank"
-              variant="solid"
               size="sm"
-              colorScheme="teal"
-              bgGradient="linear(to-tr, blue.500, blue.300)"
+              colorScheme="blue" // Adjusted color scheme
+              bgGradient="linear(to-tr, blue.400, blue.200)" // Lighter blue gradient
               onClick={setOpen}
               _focus={{ boxShadow: "outline" }}
             >
