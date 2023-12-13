@@ -37,6 +37,7 @@ const Header = () => {
             backdropFilter="blur(7px)"
             border="none"
             minH="60px"
+            h="60px"
             py={{ base: 3, md: 3, lg: 3, sm: 3, xs: 4 }}
             px={{ base: 4, md: 7 }}
             alignSelf="center"
