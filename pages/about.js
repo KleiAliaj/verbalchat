@@ -40,9 +40,20 @@ const About = () => {
       <Text fontSize="lg" mb={4}>
         Transforming business communications with cutting-edge AI.
       </Text>
-      <Button size="md" colorScheme="blue" variant="solid" leftIcon={<GrAnnounce />} mt={4}>
-        Learn More
-      </Button>
+     <Button
+  as="a"
+  href="https://www.verbal.chat/contact"
+  size="md"
+  colorScheme="blue"
+  variant="solid"
+  leftIcon={<GrAnnounce />}
+  mt={4}
+  target="_blank" // Optional: Opens the link in a new tab
+  rel="noopener noreferrer" // Recommended for security reasons when using target="_blank"
+>
+  Learn More
+</Button>
+
     </Flex>
   );
 
