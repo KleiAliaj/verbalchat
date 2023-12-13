@@ -161,7 +161,7 @@ const Hero = () => {
                 colorScheme="teal"
                 target="_blank"
                 as="a"
-                href="https://cal.com/ayushsoni1010/"
+                href="https://cal.com/verbal/"
                 variant="solid"
                 size={{ base: "md", md: "md", sm: "sm" }}
                 bgGradient="linear(to-tr, blue.500, blue.300)"
