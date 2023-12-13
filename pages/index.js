@@ -9,7 +9,7 @@ import Footer from "../components/Footer";
 export default function Landing() {
   return (
     <React.Fragment>
-      <Seo title="Portfolio" />
+      <Seo title="Verbal" />
       <Box>
         <header>
           <Header />
