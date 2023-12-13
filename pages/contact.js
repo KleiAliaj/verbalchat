@@ -1,12 +1,29 @@
 import React, { useState, useRef } from "react";
-import { Box, Button, FormControl, FormLabel, Grid, GridItem, Image, Textarea, Input, VStack, FormErrorMessage, Spinner, useToast } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  FormControl,
+  FormLabel,
+  Grid,
+  GridItem,
+  Image,
+  Textarea,
+  Input,
+  VStack,
+  Spinner,
+  useToast,
+  useColorModeValue,
+  Heading,
+  Text,
+  Alert,
+  AlertIcon,
+  AlertDescription
+} from "@chakra-ui/react";
 import emailjs from "@emailjs/browser";
 import Header from "../components/Header";
 import BaseLayout from "../components/Wrapper/BaseLayout";
-import BaseText from "../components/Wrapper/BaseText";
-import Seo from "../components/Seo";
 import Footer from "../components/Footer";
-import "react-toastify/dist/ReactToastify.css";
+import Seo from "../components/Seo";
 
 const Contact = () => {
   const form = useRef();
@@ -21,14 +38,12 @@ const Contact = () => {
 
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
-    setError({ ...error, isError: false }); // Reset error state on input change
+    setError({ ...error, isError: false });
   };
 
   const sendEmail = (e) => {
     e.preventDefault();
     setIsLoading(true);
-
-    // Here you can add your validation logic
 
     emailjs.sendForm(serviceId, templateId, form.current, publicApiKey)
       .then((response) => {
@@ -40,10 +55,11 @@ const Contact = () => {
           duration: 5000,
           isClosable: true,
         });
+        setData({ name: "", email: "", message: "" }); // Reset form data
       })
-      .catch((error) => {
+      .catch((err) => {
         setIsLoading(false);
-        setError({ ...error, isError: true, errorMessage: "Failed to send message." });
+        setError({ ...error, isError: true, errorMessage: "Failed to send message. Please try again later." });
       });
   };
 
@@ -54,87 +70,59 @@ const Contact = () => {
         <Header />
         <main>
           <BaseLayout>
-            <BaseText
-              firstTitle="Contact"
-              secondTitle="Verbal"
-              textIcon="https://ik.imagekit.io/ayushsoni1010/Website/contact?ik-sdk-version=javascript-1.4.3&updatedAt=1669666339518"
-              leftSpacing="4"
-            />
-            <Grid
-              display={{
-                base: "grid",
-                md: "grid",
-                lg: "grid",
-                sm: "block",
-                xs: "block",
-              }}
-              templateColumns={{
-                md: "repeat(2, 1fr)",
-                lg: "repeat(2, 1fr)",
-              }}
-              gap={4}
-              my="10"
-              alignItems="center"
-            >
+            <Box textAlign="center" my={10}>
+              <Heading mb={3}>Contact Us</Heading>
+              <Text fontSize="lg">We'd love to hear from you!</Text>
+            </Box>
+
+            <Grid templateColumns={{ md: "repeat(2, 1fr)" }} gap={10} px={5}>
               <GridItem>
                 <Image
                   src="/contact.svg"
-                  alt="contact-hero"
-                  w="300px"
-                  my={{ base: 10, lg: 10, md: 10, sm: 20, xs: 20 }}
-                  borderRadius="10px"
+                  alt="Contact Us"
+                  w="70%"
+                  borderRadius="lg"
                 />
               </GridItem>
+
               <GridItem>
-                <Box borderRadius="10px" boxShadow="lg">
+                <Box bg={useColorModeValue("gray.100", "gray.700")} p={8} borderRadius="lg" boxShadow="xl">
                   <form ref={form} onSubmit={sendEmail}>
-                    <VStack p="10">
-                      {/* Name Input */}
-                      <FormControl isInvalid={error.isError}>
+                    <VStack spacing={5}>
+                      <FormControl isInvalid={error.isError && error.errorNameMessage}>
                         <FormLabel htmlFor="name">Name</FormLabel>
-                        <Input
-                          type="text"
-                          name="name"
-                          id="name"
-                          value={data.name}
-                          onChange={handleChange}
-                          required
-                        />
-                        {/* Error handling message */}
+                        <Input type="text" name="name" id="name" value={data.name} onChange={handleChange} />
+                        {error.isError && error.errorNameMessage && (
+                          <FormErrorMessage>{error.errorNameMessage}</FormErrorMessage>
+                        )}
                       </FormControl>
 
-                      {/* Email Input */}
-                      <FormControl isInvalid={error.isError}>
+                      <FormControl isInvalid={error.isError && error.errorEmailMessage}>
                         <FormLabel htmlFor="email">Email</FormLabel>
-                        <Input
-                          type="email"
-                          name="email"
-                          id="email"
-                          value={data.email}
-                          onChange={handleChange}
-                          required
-                        />
-                        {/* Error handling message */}
+                        <Input type="email" name="email" id="email" value={data.email} onChange={handleChange} />
+                        {error.isError && error.errorEmailMessage && (
+                          <FormErrorMessage>{error.errorEmailMessage}</FormErrorMessage>
+                        )}
                       </FormControl>
 
-                      {/* Message Input */}
-                      <FormControl isInvalid={error.isError}>
+                      <FormControl isInvalid={error.isError && error.errorMessage}>
                         <FormLabel htmlFor="message">Message</FormLabel>
-                        <Textarea
-                          name="message"
-                          id="message"
-                          value={data.message}
-                          onChange={handleChange}
-                          required
-                        />
-                        {/* Error handling message */}
+                        <Textarea name="message" id="message" value={data.message} onChange={handleChange} />
+                        {error.isError && error.errorMessage && (
+                          <FormErrorMessage>{error.errorMessage}</FormErrorMessage>
+                        )}
                       </FormControl>
 
-                      {/* Submit Button */}
-                      <Button type="submit" isLoading={isLoading}>
-                        {isLoading ? <Spinner size="sm" mr={2} /> : null}
-                        Send email
+                      <Button type="submit" colorScheme="blue" isLoading={isLoading}>
+                        {isLoading ? <Spinner size="sm" mr={2} /> : "Send Email"}
                       </Button>
+
+                      {error.isError && (
+                        <Alert status="error">
+                          <AlertIcon />
+                          <AlertDescription>{error.errorMessage}</AlertDescription>
+                        </Alert>
+                      )}
                     </VStack>
                   </form>
                 </Box>
