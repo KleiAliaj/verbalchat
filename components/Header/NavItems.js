@@ -10,7 +10,7 @@ const NavItems = () => {
         <ButtonGroup isAttached alignSelf="center">
           {linkDetails.map((item, index) => (
             <NextLink key={index} href={item.link} passHref>
-              <Button variant={"ghost"} color="#52A3E3" size="md" colorScheme="teal">
+              <Button variant={"ghost"} color="black" size="md" colorScheme="teal">
                 {item.name}
               </Button>
             </NextLink>
