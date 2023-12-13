@@ -106,7 +106,7 @@ const Header = () => {
                   colorScheme="teal"
                   target="_blank"
                   as="a"
-                  href="https://cal.com/ayushsoni1010/"
+                  href="https://cal.com/verbal/"
                   variant="solid"
                   size="md"
                   bgGradient="linear(to-tr, blue.500, blue.300)"
