@@ -1,209 +1,137 @@
+import React, { useState, useEffect } from 'react';
 import {
-  VStack,
-  Text,
-  HStack,
-  Image,
-  Grid,
-  GridItem,
-  IconButton,
   Box,
+  SimpleGrid,
+  Image,
+  Text,
+  VStack,
+  IconButton,
   Flex,
-} from "@chakra-ui/react";
-import { GrAnnounce } from "react-icons/gr";
-import React from "react";
-import Header from "../components/Header";
-import BaseLayout from "../components/Wrapper/BaseLayout";
-import BaseText from "../components/Wrapper/BaseText";
-import SocialProfiles from "../components/Hero/SocialProfiles";
-import Seo from "../components/Seo";
-import Footer from "../components/Footer";
-import Timeline from "../components/Home/Timeline";
-import CustomComponent from "../components/about2"
+  Button,
+  Heading,
+  Container,
+  useColorModeValue,
+} from '@chakra-ui/react';
+import { GrAnnounce } from 'react-icons/gr';
+import Seo from '../components/Seo';
+import Header from '../components/Header';
+import BaseLayout from '../components/Wrapper/BaseLayout';
+import Footer from '../components/Footer';
+import SocialProfiles from '../components/Hero/SocialProfiles';
 
 const About = () => {
+  const textColor = useColorModeValue('gray.700', 'white');
+  const heroBg = useColorModeValue('gray.100', 'gray.700');
+  const ctaBg = useColorModeValue('blue.500', 'blue.800');
+
+  const HeroSection = () => (
+    <Flex
+      direction="column"
+      alignItems="start"
+      justifyContent="center"
+      px={10}
+      py={20}
+      bg={heroBg}
+      color={textColor}
+    >
+      <Heading as="h1" size="2xl" fontWeight="bold" mb={4}>
+        Meet the Innovators Behind Verbal
+      </Heading>
+      <Text fontSize="lg" mb={4}>
+        Transforming business communications with cutting-edge AI.
+      </Text>
+      <Button size="md" colorScheme="blue" variant="solid" leftIcon={<GrAnnounce />} mt={4}>
+        Learn More
+      </Button>
+    </Flex>
+  );
+
+  const GridItemProfile = ({imageSrc, description, flip }) => {
+    const [order, setOrder] = useState(0);
+  
+    useEffect(() => {
+      // Set the order based on the flip prop only when window is available (client-side)
+      const calculatedOrder = window.innerWidth >= 768 ? (flip ? 2 : 1) : 0;
+      setOrder(calculatedOrder);
+    }, [flip]);
+  
+    return (
+      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10} alignItems="center" my={10}>
+        <Box order={{ base: 0, md: order }}>
+          <Image src={imageSrc} alt="Profile Image" w="80%" borderRadius="md" boxShadow="2xl" />
+        </Box>
+        <VStack align="start" spacing={4} order={{ base: 1, md: order === 1 ? 2 : 1 }}>
+          <Text fontSize="lg" fontWeight="normal">
+            {description}
+          </Text>
+          <SocialProfiles />
+        </VStack>
+      </SimpleGrid>
+    );
+  };
+
+  const CallToActionSection = () => (
+    <Flex
+      direction="column"
+      alignItems="start"
+      justifyContent="center"
+      p={10}
+      mt={16}
+      mb={10}
+      bgGradient="linear(to-r, blue.500, blue.300)"
+      color="white"
+      borderRadius="md"
+      boxShadow="xl"
+    >
+      <Flex alignItems="center" mb={3}>
+        <IconButton
+          aria-label="Announce"
+          size="lg"
+          variant="outline"
+          colorScheme="white"
+          icon={<GrAnnounce />}
+        />
+        <Text ml={3} fontWeight="bold" fontSize="2xl">
+          Ask for a demo
+        </Text>
+      </Flex>
+      <Text>
+        At Verbal Company, we are at the forefront of AI and chatbot technologies...
+      </Text>
+    </Flex>
+  );
+
   return (
-    <React.Fragment>
+    <>
       <Seo title="About" />
-      <Box>
-        <header>
-          <Header />
-        </header>
+      <Box minH="100vh" bg={heroBg}>
+        <Header />
         <main>
           <BaseLayout>
-            <BaseText
-              firstTitle="About"
-              secondTitle="Verbal"
-              // textIcon="https://ik.imagekit.io/ayushsoni1010/Website/about?ik-sdk-version=javascript-1.4.3&updatedAt=1669666323627"
-              leftSpacing="4"
-              topSpacing="2"
-            />
-          <Grid
-              display={{
-                base: "grid",
-                md: "grid",
-                lg: "grid",
-                sm: "block",
-                xs: "block",
-              }}
-              templateColumns={{
-                md: "repeat(5, 1fr)",
-                lg: "repeat(5, 1fr)",
-              }}
-              gap={4}
-              my="10"
-            >
-              <GridItem colSpan={2}>
-                <Image
-                  src="/about.jpg" //image hero 
-                  alt="Hero"
-                  w="320px"
-                  borderRadius="10px"
-                />
-              </GridItem>
-              <GridItem
-                colStart={3}
-                colEnd={12}
-                mt={{ base: 0, md: 0, lg: 0, sm: 10, xs: 10 }}
-              >
-                <Text>
-                  👨‍🎓This is{" "}
-                  <span
-                    style={{
-                      color: "radial-gradient(circle, #3889D2, #BDD4E7)",
-                      fontWeight: 500,
-                    }}
-                  >
-                    Verbal
-                  </span>{" "}
-                  is a b2b chatbot provider that aims to bring the oportunities and advantages of GPTs to small and medium sized businesses.
-Verbal leverages open source language models, to provide a competitive price with which different businesses, can take advantage of their data to better connect and serve their customers.
-Companies in the field of real estate, local markets, online stores, pharmacies, book stores and many more can achieve cheaper, better, and 24h customer service, providing a better experience to their clients, and increasing their profit margins and sales. 
-                </Text>
-                <Text mt="5">
-                  {/* ⚡I am a{" "} */}
-                  <span
-                    style={{
-                      color: "var(--chakra-colors-teal-500)",
-                      fontWeight: 500,
-                    }}
-                  >
-                  
-                  </span>
-                 
-                  <span
-                    style={{
-                      color: "var(--chakra-colors-teal-500)",
-                      fontWeight: 500,
-                    }}
-                  >
-                  </span>{" "}
-                 
-                </Text>
-                <Text mt="5">
-                  <span
-                    style={{
-                      color: "var(--chakra-colors-teal-500)",
-                      fontWeight: 500,
-                    }}
-                  >
-                  </span>{" "}
-                  
-                </Text>
-                <HStack
-                  mt={{ base: 8, lg: 8, md: 8, sm: 10, xs: 10 }}
-                  display={{
-                    base: "block",
-                    lg: "block",
-                    md: "block",
-                    sm: "none",
-                    xs: "none",
-                  }}
-                >
-                  <SocialProfiles />
-                </HStack>
-              </GridItem>
-            </Grid>
-            <CustomComponent/>
-
-            <VStack
-              mt={{ base: 28, lg: 28, md: 28, sm: 20, xs: 20 }}
-              p="10"
-              spacing={4}
-              w="full"
-              borderRadius="10px"
-              color="black"
-              alignItems={"flex-start"}
-              bgGradient="radial-gradient(circle, #3889D2, #BDD4E7)"
-            >
-              <Flex gap="4" alignItems={"center"}>
-                <IconButton
-                  size="lg"
-                  width={{ base: 14, lg: 14, md: 14, sm: 14, xs: 10 }}
-                  height={{ base: 14, lg: 14, md: 14, sm: 14, xs: 10 }}
-                  fontSize={{
-                    base: "3xl",
-                    lg: "3xl",
-                    md: "3xl",
-                    sm: "2xl",
-                    xs: "2xl",
-                  }}
-                  variant="solid"
-                  color="current"
-                  bg="white"
-                  icon={<GrAnnounce />}
-                />
-                <Text
-                  fontSize={{
-                    base: "4xl",
-                    lg: "4xl",
-                    md: "4xl",
-                    sm: "4xl",
-                    xs: "2xl",
-                  }}
-                  fontWeight={"bold"}
-                >
-                  Ask for a demo  
-                </Text>
-              </Flex>
-                  
-              <Text
-                display={{
-                  base: "block",
-                  lg: "block",
-                  md: "block",
-                  sm: "none",
-                  xs: "none",
-                }}
-              >
-At Verbal Company, we are at the forefront of AI and chatbot technologies, driving innovation in automated communication solutions. Our team is eager to explore collaborative opportunities in AI-driven chatbot development, bringing a wealth of expertise in both frontend and backend systems. We invite you to ask for a demo, showcasing our capabilities in creating advanced and interactive user experiences. We are open to various working arrangements, including full-time, part-time, or contract roles, to effectively contribute to projects that set new standards in intelligent user engagement.
-
-</Text>
-              
-              <Text
-                display={{
-                  base: "none",
-                  lg: "none",
-                  md: "none",
-                  sm: "block",
-                  xs: "block",
-                }}
-              >
-                I&apos;m a versatile developer excited about diverse roles in
-                frontend and backend development, and open to different work
-                arrangements.
-              </Text>
-
-              {/* <Timeline/> */}
-
-            </VStack> 
+            <HeroSection />
+            <Container maxW="container.xl">
+              <GridItemProfile
+                imageSrc="https://i.gifer.com/LCPT.gif"
+                description="👨‍🎓 👨‍🎓This is Verbal is a b2b chatbot provider that aims to bring the oportunities and advantages of GPTs to small and medium sized businesses. Verbal leverages open source language models, to provide a competitive price with which different businesses, can take advantage of their data to better connect and serve their customers. Companies in the field of real estate, local markets, online stores, pharmacies, book stores and many more can achieve cheaper, better, and 24h customer service, providing a better experience to their clients, and increasing their profit margins and sales.                "
+                flip={false}
+              />
+              <GridItemProfile
+                imageSrc="/1698669790573.jpg"
+                description="Klei Aliaj is Software Engineer and AI Specialist, holding a degree in Computer Engineering and a strong track record in mobile app development with AI integration. With many years worked at Vodafone he excells in both front-end and back-end solutions. His ability to blend complex technical concepts with user-friendly applications, contributing significantly to the field of technology. Highlighted in his substantial contribution to the creation of e-Albanians chat system.                "
+                flip={true}
+              />
+              <GridItemProfile
+                imageSrc="/armir.jpeg"
+                description="Armir Cheliku is a political scientist with a background in international relations and economics, he got into data analytics in 2020 earning certifications in the field. Since then he has grown his portfolio, with projects including winning the Goethe Institut's AI2Amplify Hackathon. In 2023, he started developing LLM systems, culminating in Verbal. "
+                flip={false}
+              />
+            </Container>
+            <CallToActionSection />
           </BaseLayout>
-          
         </main>
-        <footer>
-          <Footer />
-        </footer>
+        <Footer />
       </Box>
-    </React.Fragment>
+    </>
   );
 };
 
