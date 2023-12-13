@@ -49,8 +49,8 @@ const Header = () => {
              <Image
    src="logo.png"
   alt="Brand Logo"
-  w={90}
-  h={45}  
+  w={150}
+  h={150}  
   cursor="pointer"
   />
 
