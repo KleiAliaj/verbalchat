@@ -4,9 +4,9 @@ import Head from "next/head";
 const Seo = ({
   title = "Verbal",
   description = "Hey! I am Verbal, a full-stack developer from India.",
-  OGImage = "https://ayushsoni1010.com/profile.jpg",
+  OGImage = "https://www.verbal.chat/logo.png",
   OGType = "website",
-  canonicalUrl = "https://ayushsoni1010.com/",
+  canonicalUrl = "https://www.verbal.chat/",
   publishedDate = new Date(),
   children,
 }) => {
@@ -18,22 +18,22 @@ const Seo = ({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="description" content={description} />
         <meta name="author" content="Verbal" />
-        <meta name="author" content="ayushsoni1010" />
+        <meta name="author" content="Verbal" />
         <link rel="apple-touch-icon" href="apple-touch-icon.png" />
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 
         {/* twitter metadata */}
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:site" content="@ayushsoni1010" />
-        <meta name="twitter:creator" content="@ayushsoni1010" />
+        <meta name="twitter:site" content="@Verbal" />
+        <meta name="twitter:creator" content="@Verbal" />
         <meta name="twitter:title" content="Verbal" />
         <meta
           name="twitter:description"
-          content="Hey! I am Ayush, a full-stack developer from India."
+          content="Empower Your Enterprise with Smart Dialogues Fueled by Verbal.chat"
         />
         <meta
           name="twitter:image"
-          content="https://ayushsoni1010.com/profile.jpg"
+          content="https://www.verbal.chat/logo.png"
         />
 
         {/* canonical link */}
