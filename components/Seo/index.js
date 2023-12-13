@@ -3,7 +3,7 @@ import Head from "next/head";
 
 const Seo = ({
   title = "Verbal",
-  description = "Hey! I am Verbal, a full-stack developer from India.",
+  description = "This is Verbal, a b2b chatbot provider that aims to bring the oportunities and advantages of GPTs to small and medium sized businesses.",
   OGImage = "https://www.verbal.chat/logo.png",
   OGType = "website",
   canonicalUrl = "https://www.verbal.chat/",
