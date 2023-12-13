@@ -22,7 +22,7 @@ const CollapseMenu = ({ isOpen, setOpen }) => {
           borderRadius="md"
           minH="lg"
           justifyContent="space-between"
-          bg={useColorModeValue("teal.100", "gray.700")}
+          bg={useColorModeValue("blue.500", "gray.700")}
         >
           <Stack
             display={{ md: "none", sm: "flex", xs: "flex" }}
@@ -36,7 +36,7 @@ const CollapseMenu = ({ isOpen, setOpen }) => {
                 variant="ghost"
                 size="sm"
                 onClick={setOpen}
-                colorScheme="teal"
+                // colorScheme="teal"
                 href={item.link}
                 _focus={{ boxShadow: "outline" }}
               >
@@ -60,7 +60,7 @@ const CollapseMenu = ({ isOpen, setOpen }) => {
             </Button> */}
             <Button
               as="a"
-              href="https://cal.com/ayushsoni1010/"
+              href="https://cal.com/verbal/"
               target="_blank"
               variant="solid"
               size="sm"
