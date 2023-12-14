@@ -17,7 +17,7 @@ export const linkDetails = [
   // },
   {
     name: "Playground",
-    link: "https://llama2.kleyaliaj.repl.co",
+    link: "http://verbalchat.armirceliku.repl.co/",
   },
   {
     name: "Contact",
