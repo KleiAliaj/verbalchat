@@ -11,8 +11,8 @@ const Skills = () => {
       <BaseLayout id="skills">
         <BaseText
           id="skills-header-wrapper"
-          firstTitle="We offer a different"
-          secondTitle="opensource models "
+          firstTitle="Connecting With"
+          secondTitle=" Open Source"
           textIcon="https://ik.imagekit.io/ayushsoni1010/Website/skills?ik-sdk-version=javascript-1.4.3&updatedAt=1669666366824"
           leftSpacing={20}
           topSpacing={-4}
