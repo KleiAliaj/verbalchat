@@ -94,8 +94,8 @@ const Home = () => {
           </Grid>
         </Box>
       </BaseLayout>
-       <Skills /> 
-      {/* <BaseLayout mt="24" id="product">
+      <Skills />
+       <BaseLayout mt="24" id="product">
         <Heading
           fontSize={{
             base: "5xl",
@@ -164,7 +164,10 @@ const Home = () => {
             )}
           </Grid>
         </Box>
-      </BaseLayout> */}
+      </BaseLayout> 
+     
+      {/* <Timeline /> */}
+      <SupportedLanguages/>
       <BaseLayout>
         <Flex
           mb={{ base: 14, lg: 14, md: 14, sm: 20, xs: 20 }}
@@ -218,8 +221,6 @@ const Home = () => {
           </NextLink>
         </Flex>
       </BaseLayout>
-      {/* <Timeline /> */}
-      <SupportedLanguages/>
     </React.Fragment>
   );
 };
