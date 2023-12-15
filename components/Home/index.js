@@ -94,7 +94,7 @@ const Home = () => {
           </Grid>
         </Box>
       </BaseLayout>
-      {/* <Skills /> */}
+       <Skills /> 
       {/* <BaseLayout mt="24" id="product">
         <Heading
           fontSize={{
