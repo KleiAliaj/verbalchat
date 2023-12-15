@@ -69,7 +69,7 @@ const skillDetails = [
     name: "JavaScript",
     key: "js",
     icon: <SiJavascript />,
-    iconURL: "/assets/z.png",
+    iconURL: "/assets/z.PNG",
   },
   {
     name: "Typescript",
