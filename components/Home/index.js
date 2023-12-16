@@ -99,6 +99,7 @@ const Home = () => {
            <Skills />
       {/* <Timeline /> */}
       <SupportedLanguages/>
+      <PricingComponent/>
 
       <BaseLayout>
         <Flex
