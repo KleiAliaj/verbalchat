@@ -1,0 +1,102 @@
+import React from 'react';
+import { Box, Flex, Text, Button, Heading, Badge, Grid } from '@chakra-ui/react';
+
+const PricingCard = ({ plan }) => {
+  return (
+    <Flex
+      direction="column"
+      align="center"
+      p={6}
+      m={4}
+      bg="gray.50"
+      boxShadow="0px 4px 12px rgba(0,0,0,0.15)"
+      textAlign="center"
+      position="relative"
+      borderRadius="xl"
+    >
+      {plan.isPopular && (
+        <Badge colorScheme="purple" position="absolute" top="1rem" right="1rem">
+          Most Popular
+        </Badge>
+      )}
+      <Heading as="h3" size="lg" mb={3}>{plan.name}</Heading>
+      <Text fontWeight="bold" fontSize="3xl" mb={3}>
+        {plan.price}
+      </Text>
+      <Text fontSize="md" color="gray.600">
+        {plan.queries}
+      </Text>
+      <Text fontSize="sm" color="gray.600" mb={3}>
+        {plan.additionalQueryCost}
+      </Text>
+      <Text fontSize="sm" color="gray.600" mb={4}>
+        {plan.supportedLanguages}
+      </Text>
+      <Button
+        colorScheme="purple"
+        variant="outline"
+        size="md"
+        mt={4}
+        onClick={() => alert("Contact us for more information!")}
+      >
+        {plan.name === 'Custom' ? 'Contact Us' : 'Get Started'}
+      </Button>
+    </Flex>
+  );
+};
+const PricingComponent = () => {
+  const plans = [
+    {
+      name: 'Basic',
+      price: '$49',
+      queries: '50,000 queries',
+      additionalQueryCost: 'Additional $0.0004 per query above limit',
+      supportedLanguages: 'Supports Mistral languages',
+      isPopular: false,
+    },
+    {
+      name: 'Pro',
+      price: '$69',
+      queries: '5,000 queries',
+      additionalQueryCost: 'Additional $0.004 per query above limit',
+      supportedLanguages: 'Supports English, German, Spanish, French, Albanian, etc.',
+      isPopular: true,
+    },
+    {
+      name: 'Enterprise A',
+      price: '$149',
+      queries: '10,000 queries',
+      additionalQueryCost: '$0.0018 per additional query',
+      supportedLanguages: 'Supports English, German, Spanish, French, Albanian, etc.',
+      isPopular: false,
+    },
+    {
+      name: 'Enterprise B',
+      price: '$199',
+      queries: '3,000 queries',
+      additionalQueryCost: '$0.12 per additional query',
+      supportedLanguages: 'Supports English, German, Spanish, French, Albanian, etc.',
+      isPopular: false,
+    },
+    {
+      name: 'Custom',
+      price: 'Contact us',
+      queries: 'Custom tailor package',
+      additionalQueryCost: 'Custom pricing',
+      supportedLanguages: 'Custom language support',
+      isPopular: false,
+    },
+  ];
+
+  return (
+    <Box p={5} bg="gray.100">
+      <Grid templateColumns={["repeat(1, 1fr)", "repeat(3, 1fr)"]} gap={6} justifyContent="center">
+        {plans.map((plan, index) => (
+          <PricingCard key={index} plan={plan} />
+        ))}
+      </Grid>
+    </Box>
+  );
+};
+
+export default PricingComponent;
