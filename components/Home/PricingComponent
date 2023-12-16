@@ -1,17 +1,19 @@
-import React, { useState } from 'react';
-import { Box, Flex, Text, Button, Heading, Stack, Badge } from '@chakra-ui/react';
+import React from 'react';
+import { Flex, Text, Button, Heading, Stack, Badge } from '@chakra-ui/react';
 
 const PricingCard = ({ plan }) => {
   return (
-    <Box
-      borderWidth="1px"
-      borderRadius="lg"
+    <Flex
+      direction="column"
+      align="center"
       p={6}
       m={4}
       bg="white"
       boxShadow="0px 4px 8px rgba(0,0,0,0.2)"
       textAlign="center"
       position="relative"
+      w="full"
+      maxW="sm"
     >
       {plan.isPopular && (
         <Badge colorScheme="teal" position="absolute" top="1rem" right="1rem">
@@ -40,9 +42,10 @@ const PricingCard = ({ plan }) => {
       >
         {plan.name === 'Custom' ? 'Contact Us' : 'Get Started'}
       </Button>
-    </Box>
+    </Flex>
   );
 };
+
 
 const PricingComponent = () => {
   const plans = [
@@ -89,13 +92,11 @@ const PricingComponent = () => {
   ];
 
   return (
-    <Flex direction="column" align="center" p={5}>
-      <Stack direction={['column', 'row']} spacing={4} wrap="wrap" justify="center">
-        {plans.map((plan, index) => (
-          <PricingCard key={index} plan={plan} />
-        ))}
-      </Stack>
-    </Flex>
+    <Stack direction={['column', 'row']} spacing={4} wrap="wrap" justify="center" p={5}>
+      {plans.map((plan, index) => (
+        <PricingCard key={index} plan={plan} />
+      ))}
+    </Stack>
   );
 };
 
