@@ -16,7 +16,6 @@ import Skills from "./Skills";
 import Timeline from "./Timeline";
 import SupportedLanguages from "./SupportedLanguages";
 import { productCardDetails } from "./__productCardDetails";
-import PricingComponent from "./PricingComponent";
 import { IoIosRocket } from "react-icons/io";
 
 const Home = () => {
