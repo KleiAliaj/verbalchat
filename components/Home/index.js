@@ -16,6 +16,7 @@ import Timeline from "./Timeline";
 import { productCardDetails } from "./__productCardDetails";
 import { IoIosRocket } from "react-icons/io";
 import SupportedLanguages from "./SupportedLanguages";
+import Skills from "./Skills";
 
 const Home = () => {
   return (
@@ -93,7 +94,7 @@ const Home = () => {
         </Box>
       </BaseLayout>
    
-     
+           <Skills />
       {/* <Timeline /> */}
       <SupportedLanguages/>
 
