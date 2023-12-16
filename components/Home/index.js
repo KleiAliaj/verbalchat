@@ -15,6 +15,7 @@ import BaseLayout from "../Wrapper/BaseLayout";
 import Timeline from "./Timeline";
 import { productCardDetails } from "./__productCardDetails";
 import { IoIosRocket } from "react-icons/io";
+import SupportedLanguages from "./SupportedLanguages";
 
 const Home = () => {
   return (
@@ -94,6 +95,8 @@ const Home = () => {
    
      
       {/* <Timeline /> */}
+      <SupportedLanguages/>
+
       <BaseLayout>
         <Flex
           mb={{ base: 14, lg: 14, md: 14, sm: 20, xs: 20 }}
