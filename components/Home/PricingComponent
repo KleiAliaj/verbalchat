@@ -9,23 +9,25 @@ const calculateYearlyPrice = (monthlyPrice) => {
 };
 
 const PricingCard = ({ plan, isMonthly }) => {
-  const boxShadow = {
-    base: '0 0 4px 0 rgba(0,0,0,0.2)',
-    hover: '0 8px 16px 0 rgba(0,0,0,0.2)'
-  };
-  const [shadow, setShadow] = useState(boxShadow.base);
+  const boxShadowBase = '0 0 4px 0 rgba(0,0,0,0.2)';
+  const boxShadowHover = '0 8px 16px 0 rgba(0,0,0,0.2)';
+  const [shadow, setShadow] = useState(boxShadowBase);
 
   const displayPrice = isMonthly ? plan.price : calculateYearlyPrice(plan.price);
 
   return (
     <Box
-      borderWidth="1px" borderRadius="lg" p={6} m={4}
-      bg={useColorModeValue('white', 'gray.700')}
+      borderWidth="1px"
+      borderRadius="lg"
+      p={6}
+      m={4}
+      bg="white" // Directly setting the background color
       boxShadow={shadow}
-      onMouseEnter={() => setShadow(boxShadow.hover)}
-      onMouseLeave={() => setShadow(boxShadow.base)}
-      transition="box-shadow 0.2s"
-      textAlign="center" position="relative"
+      onMouseEnter={() => setShadow(boxShadowHover)}
+      onMouseLeave={() => setShadow(boxShadowBase)}
+      transition="box-shadow 0.2s ease-in-out"
+      textAlign="center"
+      position="relative"
     >
       {plan.isPopular && (
         <Badge colorScheme="teal" position="absolute" top="1rem" right="1rem">
@@ -40,6 +42,7 @@ const PricingCard = ({ plan, isMonthly }) => {
     </Box>
   );
 };
+
 
 
 const PricingComponent = () => {
@@ -97,7 +100,18 @@ const PricingComponent = () => {
   return (
     <Flex direction="column" align="center" p={5}>
       <Stack direction={['column', 'row']} mb={10} spacing={4}>
-        {/* Monthly/Yearly toggle buttons */}
+        <Button
+          onClick={() => setIsMonthly(true)}
+          colorScheme={isMonthly ? 'blue' : 'gray'}
+        >
+          Monthly
+        </Button>
+        <Button
+          onClick={() => setIsMonthly(false)}
+          colorScheme={!isMonthly ? 'blue' : 'gray'}
+        >
+          Yearly
+        </Button>
       </Stack>
       <Flex wrap="wrap" justify="center">
         {plans.map((plan, index) => (
@@ -109,4 +123,3 @@ const PricingComponent = () => {
 };
 
 export default PricingComponent;
-
