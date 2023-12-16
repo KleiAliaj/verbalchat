@@ -16,7 +16,6 @@ import Skills from "./Skills";
 import Timeline from "./Timeline";
 import SupportedLanguages from "./SupportedLanguages";
 import { productCardDetails } from "./__productCardDetails";
-import PricingComponent from "./PricingComponent";
 import { IoIosRocket } from "react-icons/io";
 
 const Home = () => {
@@ -97,7 +96,6 @@ const Home = () => {
       <Skills />   
       {/* <Timeline /> */}
       <SupportedLanguages/>
-      <PricingComponent/>
       <BaseLayout>
         <Flex
           mb={{ base: 14, lg: 14, md: 14, sm: 20, xs: 20 }}
