@@ -1,158 +1,160 @@
-import React, { useState } from 'react';
 import {
   Box,
-  Flex,
-  Text,
-  Button,
-  useColorModeValue,
+  Grid,
   Heading,
+  Icon,
   Stack,
-  Badge,
-} from '@chakra-ui/react';
+  VStack,
+  Text,
+  Flex,
+  Button,
+} from "@chakra-ui/react";
+import React from "react";
+import NextLink from "next/link";
+import BaseLayout from "../Wrapper/BaseLayout";
+import Skills from "./Skills";
+import Timeline from "./Timeline";
+import SupportedLanguages from "./SupportedLanguages";
+import { productCardDetails } from "./__productCardDetails";
+import PricingComponent from "../pricing"
+import { IoIosRocket } from "react-icons/io";
 
-// Calculate the yearly price which is 10% cheaper than the monthly price
-const calculateYearlyPrice = (monthlyPrice) => {
-  const monthly = parseFloat(monthlyPrice);
-  const yearly = monthly * 12 * 0.9; // 10% discount
-  return yearly.toFixed(2);
-};
-
-const PricingCard = ({ plan, isMonthly }) => {
-  const boxShadowBase = '0 0 4px 0 rgba(0,0,0,0.2)';
-  const boxShadowHover = '0 8px 16px 0 rgba(0,0,0,0.2)';
-  const [shadow, setShadow] = useState(boxShadowBase);
-
-  // Display price based on the toggle state (monthly/yearly)
-  const displayPrice = isMonthly ? plan.price : calculateYearlyPrice(plan.price);
-
-  // Function to handle button click
-  const handleButtonClick = () => {
-    window.location.href = 'https://www.verbal.chat/contact';
-  };
-
+const Home = () => {
   return (
-    <Box
-      borderWidth="1px"
-      borderRadius="lg"
-      p={6}
-      m={4}
-      bg={useColorModeValue('white', 'gray.700')}
-      boxShadow={shadow}
-      onMouseEnter={() => setShadow(boxShadowHover)}
-      onMouseLeave={() => setShadow(boxShadowBase)}
-      transition="box-shadow 0.2s ease-in-out"
-      textAlign="center"
-      position="relative"
-    >
-      {plan.isPopular && (
-        <Badge colorScheme="teal" position="absolute" top="1rem" right="1rem">
-          Most Popular
-        </Badge>
-      )}
-      <Heading as="h3" size="lg" mb={2}>
-        {plan.name}
-      </Heading>
-      <Text fontWeight="bold" fontSize="5xl" mb={2}>
-        {plan.price.startsWith('Contact') ? plan.price : `$${displayPrice}${isMonthly ? '/mo' : '/yr'}`}
-      </Text>
-      <Text fontSize="md" color="gray.500">
-        {plan.queries}
-      </Text>
-      <Text fontSize="sm" color="gray.500" mb={4}>
-        {plan.additionalQueryCost}
-      </Text>
-      <Text fontSize="sm" color="gray.500" mb={4}>
-        {plan.supportedLanguages}
-      </Text>
-      <Button
-        colorScheme={plan.isPopular ? 'teal' : 'blue'}
-        variant="solid"
-        size="md"
-        mt={4}
-        isFullWidth={true}
-        onClick={handleButtonClick}
-      >
-        {plan.price.startsWith('Contact') ? 'Contact Us' : 'Get Started'}
-      </Button>
-    </Box>
-  );
-};
-
-const PricingComponent = () => {
-  const [isMonthly, setIsMonthly] = useState(true);
-
-  const plans = [
-    {
-      name: 'Basic',
-      price: '49',
-      queries: '50,000 queries',
-      additionalQueryCost: '$0.0004 per query above limit',
-      supportedLanguages: 'Supports Mistral languages',
-      duration: 'month',
-      isPopular: false,
-    },
-    {
-      name: 'Pro',
-      price: '69',
-      queries: '5,000 queries',
-      additionalQueryCost: '$0.004 per query above limit',
-      supportedLanguages: 'Supports most languages, including English, German, Spanish, French, Albanian and over 100 more',
-      duration: 'month',
-      isPopular: true, // Mark as most popular as an example
-    },
-    {
-      name: 'Enterprise A',
-      price: '149',
-      queries: '10,000 queries',
-      additionalQueryCost: '$0.0018 per additional query',
-      supportedLanguages: 'Supports most languages, including English, German, Spanish, French, Albanian and over 100 more',
-      duration: 'month',
-      isPopular: false,
-    },
-    {
-      name: 'Enterprise B',
-      price: '199',
-      queries: '3,000 queries',
-      additionalQueryCost: '$0.12 per additional query',
-      supportedLanguages: 'Supports most languages, including English, German, Spanish, French, Albanian and over 100 more',
-      duration: 'month',
-      isPopular: false,
-    },
-    {
-      name: 'Custom',
-      price: 'Contact us',
-      queries: 'Custom tailor package',
-      additionalQueryCost: 'Custom pricing',
-      supportedLanguages: 'Custom language support',
-      duration: '',
-      isPopular: false,
-    },
-  ];
-
+    <React.Fragment>
+      <BaseLayout mt="10" id="stack">
+        <Heading
+          fontSize={{
+            base: "5xl",
+            md: "5xl",
+            lg: "5xl",
+            sm: "3xl",
+            xs: "3xl",
+          }}
+          fontWeight="bold"
+          textAlign="center"
+        >
+          Verbal offers:
+        </Heading>
+        {/* <Text
+          textAlign="center"
+          fontSize={{ base: "md", md: "md", lg: "md", sm: "sm", xs: "sm" }}
+          my="5"
+          mx={{ lg: 60, md: 60, sm: 0, xs: 0 }}
+        >
+          From designing the interface to implementing your fully featured
+          application - I can provide the full product design process from an
+          idea to a finished hiqh quality app, polished with fantastic design
+          and running on state of the art software.
+        </Text> */}
+        <Box align="center" my={{ base: 20, lg: 20, md: 20, sm: 14, xs: 14 }}>
+          <Grid
+            display={{
+              base: "grid",
+              md: "grid",
+              lg: "grid",
+              sm: "block",
+              xs: "block",
+            }}
+            templateColumns="repeat(2,1fr)"
+            maxW="3xl"
+            gap="20"
+          >
+            {productCardDetails.map(
+              (item, index) =>
+                item?.stack && (
+                  <Stack
+                    key={index}
+                    spacing="3"
+                    align="center"
+                    mt={{ md: 0, lg: 0, sm: 10, xs: 10 }}
+                  >
+                    <Box
+                      w="60px"
+                      h="60px"
+                      borderRadius="full"
+                      align="center"
+                      bg={item?.bgColor}
+                      mb="2"
+                      boxShadow="2xl"
+                      transition={"ease-in-out"}
+                      transitionDuration="0.5s"
+                      _hover={{ boxShadow: "outline" }}
+                      cursor="pointer"
+                    >
+                      <Icon mt="5" w="5" h="5">
+                        {item?.svgIcon}
+                      </Icon>
+                    </Box>
+                    <Heading fontSize="xl">{item?.title}</Heading>
+                    <Text fontSize="sm">{item?.description}</Text>
+                  </Stack>
+                )
+            )}
+          </Grid>
+        </Box>
+      </BaseLayout>
+      <Skills />
    
-  return (
-    <Flex direction="column" align="center" p={5}>
-      <Stack direction={['column', 'row']} mb={10} spacing={4}>
-        <Button
-          onClick={() => setIsMonthly(true)}
-          colorScheme={isMonthly ? 'blue' : 'gray'}
-        >
-          Monthly
-        </Button>
-        <Button
-          onClick={() => setIsMonthly(false)}
-          colorScheme={!isMonthly ? 'blue' : 'gray'}
-        >
-          Yearly
-        </Button>
-      </Stack>
-      <Flex wrap="wrap" justify="center">
-        {plans.map((plan, index) => (
-          <PricingCard key={index} plan={plan} isMonthly={isMonthly} />
-        ))}
-      </Flex>
-    </Flex>
+     
+      {/* <Timeline /> */}
+      <SupportedLanguages/>
+      <PricingComponent/>
+      <BaseLayout>
+        <Flex
+          mb={{ base: 14, lg: 14, md: 14, sm: 20, xs: 20 }}
+          p="10"
+          w="full"
+          borderRadius="10px"
+          color="black"
+          alignItems={"center"}
+          justify={"space-evenly"}
+          display={{
+            base: "flex",
+            md: "flex",
+            lg: "flex",
+            sm: "block",
+            xs: "block",
+          }}
+          bgGradient="radial-gradient(circle, #3889D2, #BDD4E7)">
+          <VStack alignItems={"flex-start"}>
+            <Text
+              fontSize={{
+                base: "4xl",
+                lg: "4xl",
+                md: "4xl",
+                sm: "2xl",
+                xs: "2xl",
+              }}
+              fontWeight={"bold"}
+            >
+              Let&apos;s Build Something Together
+            </Text>
+
+            <Text fontSize={"lg"}>
+              Turning ideas into real life products is my calling. Let&apos;s do
+              this.
+            </Text>
+          </VStack>
+          <NextLink href="/links" passHref>
+            <Button
+              leftIcon={<IoIosRocket />}
+              colorScheme="white"
+              color="white"
+              bg="black"
+              size={"lg"}
+              shadow={"dark-lg"}
+              _hover={{ shadow: "none" }}
+              variant="solid"
+              marginTop={{ base: 0, lg: 0, md: 0, sm: 4, xs: 4 }}
+            >
+              Connect With Us
+            </Button>
+          </NextLink>
+        </Flex>
+      </BaseLayout>
+    </React.Fragment>
   );
 };
 
-export default PricingComponent;
+export default Home;
