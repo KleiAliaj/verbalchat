@@ -12,9 +12,7 @@ import {
 import React from "react";
 import NextLink from "next/link";
 import BaseLayout from "../Wrapper/BaseLayout";
-import Skills from "./Skills";
 import Timeline from "./Timeline";
-import SupportedLanguages from "./SupportedLanguages";
 import { productCardDetails } from "./__productCardDetails";
 import { IoIosRocket } from "react-icons/io";
 
@@ -93,11 +91,9 @@ const Home = () => {
           </Grid>
         </Box>
       </BaseLayout>
-      <Skills />
    
      
       {/* <Timeline /> */}
-      <SupportedLanguages/>
       <BaseLayout>
         <Flex
           mb={{ base: 14, lg: 14, md: 14, sm: 20, xs: 20 }}
