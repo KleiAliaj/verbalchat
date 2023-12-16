@@ -22,6 +22,7 @@ import { IoIosRocket } from "react-icons/io";
 const Home = () => {
   return (
     <React.Fragment>
+    
       <BaseLayout mt="10" id="stack">
         <Heading
           fontSize={{
