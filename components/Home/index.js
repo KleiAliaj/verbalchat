@@ -17,7 +17,6 @@ import Timeline from "./Timeline";
 import SupportedLanguages from "./SupportedLanguages";
 import { productCardDetails } from "./__productCardDetails";
  import { IoIosRocket } from "react-icons/io";
- import PricingComponent from "./PricingComponent";
 
 const Home = () => {
   return (
@@ -99,7 +98,6 @@ const Home = () => {
      
       {/* <Timeline /> */}
       <SupportedLanguages/>
-      <PricingComponent/>
       <BaseLayout>
         <Flex
           mb={{ base: 14, lg: 14, md: 14, sm: 20, xs: 20 }}
