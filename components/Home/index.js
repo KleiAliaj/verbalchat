@@ -99,6 +99,8 @@ const Home = () => {
      
       {/* <Timeline /> */}
       <SupportedLanguages/>
+                    <Timeline />
+
       <BaseLayout>
         <Flex
           mb={{ base: 14, lg: 14, md: 14, sm: 20, xs: 20 }}
