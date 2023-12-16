@@ -10,23 +10,23 @@ import {
   Badge,
 } from '@chakra-ui/react';
 
-// Function to calculate the yearly price
+// Calculate the yearly price which is 10% cheaper than the monthly price
 const calculateYearlyPrice = (monthlyPrice) => {
-  return (parseFloat(monthlyPrice) * 12 * 0.9).toFixed(2);
+  const monthly = parseFloat(monthlyPrice);
+  const yearly = monthly * 12 * 0.9; // 10% discount
+  return yearly.toFixed(2);
 };
 
-// Component for individual pricing cards
 const PricingCard = ({ plan, isMonthly }) => {
   const boxShadowBase = '0 0 4px 0 rgba(0,0,0,0.2)';
   const boxShadowHover = '0 8px 16px 0 rgba(0,0,0,0.2)';
   const [shadow, setShadow] = useState(boxShadowBase);
 
-  // Determine the display price based on the selected plan
+  // Display price based on the toggle state (monthly/yearly)
   const displayPrice = isMonthly ? plan.price : calculateYearlyPrice(plan.price);
 
-  // Function to handle the button click - navigating to the contact page
+  // Function to handle button click
   const handleButtonClick = () => {
-    // Replace with router push if necessary for client-side navigation
     window.location.href = 'https://www.verbal.chat/contact';
   };
 
@@ -49,13 +49,21 @@ const PricingCard = ({ plan, isMonthly }) => {
           Most Popular
         </Badge>
       )}
-      <Heading as="h3" size="lg" mb={2}>{plan.name}</Heading>
+      <Heading as="h3" size="lg" mb={2}>
+        {plan.name}
+      </Heading>
       <Text fontWeight="bold" fontSize="5xl" mb={2}>
         {plan.price.startsWith('Contact') ? plan.price : `$${displayPrice}${isMonthly ? '/mo' : '/yr'}`}
       </Text>
-      <Text fontSize="md" color="gray.500">{plan.queries}</Text>
-      <Text fontSize="sm" color="gray.500" mb={4}>{plan.additionalQueryCost}</Text>
-      <Text fontSize="sm" color="gray.500" mb={4}>{plan.supportedLanguages}</Text>
+      <Text fontSize="md" color="gray.500">
+        {plan.queries}
+      </Text>
+      <Text fontSize="sm" color="gray.500" mb={4}>
+        {plan.additionalQueryCost}
+      </Text>
+      <Text fontSize="sm" color="gray.500" mb={4}>
+        {plan.supportedLanguages}
+      </Text>
       <Button
         colorScheme={plan.isPopular ? 'teal' : 'blue'}
         variant="solid"
@@ -69,6 +77,7 @@ const PricingCard = ({ plan, isMonthly }) => {
     </Box>
   );
 };
+
 const PricingComponent = () => {
   const [isMonthly, setIsMonthly] = useState(true);
 
@@ -124,11 +133,23 @@ const PricingComponent = () => {
   return (
     <Flex direction="column" align="center" p={5}>
       <Stack direction={['column', 'row']} mb={10} spacing={4}>
-        <Button onClick={() => setIsMonthly(true)} colorScheme={isMonthly ? 'blue' : 'gray'}>Monthly</Button>
-        <Button onClick={() => setIsMonthly(false)} colorScheme={!isMonthly ? 'blue' : 'gray'}>Yearly</Button>
+        <Button
+          onClick={() => setIsMonthly(true)}
+          colorScheme={isMonthly ? 'blue' : 'gray'}
+        >
+          Monthly
+        </Button>
+        <Button
+          onClick={() => setIsMonthly(false)}
+          colorScheme={!isMonthly ? 'blue' : 'gray'}
+        >
+          Yearly
+        </Button>
       </Stack>
       <Flex wrap="wrap" justify="center">
-        {plans.map((plan, index) => <PricingCard key={index} plan={plan} isMonthly={isMonthly} />)}
+        {plans.map((plan, index) => (
+          <PricingCard key={index} plan={plan} isMonthly={isMonthly} />
+        ))}
       </Flex>
     </Flex>
   );
