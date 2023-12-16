@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Flex, Text, Button, Heading, Badge, Grid } from '@chakra-ui/react';
+import { pricingPlans } from './__pricingDetails'; // Import the pricing plans
 
 const PricingCard = ({ plan }) => {
   return (
@@ -44,54 +45,12 @@ const PricingCard = ({ plan }) => {
     </Flex>
   );
 };
-const PricingComponent = () => {
-  const plans = [
-    {
-      name: 'Basic',
-      price: '$49',
-      queries: '50,000 queries',
-      additionalQueryCost: 'Additional $0.0004 per query above limit',
-      supportedLanguages: 'Supports Mistral languages',
-      isPopular: false,
-    },
-    {
-      name: 'Pro',
-      price: '$69',
-      queries: '5,000 queries',
-      additionalQueryCost: 'Additional $0.004 per query above limit',
-      supportedLanguages: 'Supports English, German, Spanish, French, Albanian, etc.',
-      isPopular: true,
-    },
-    {
-      name: 'Enterprise A',
-      price: '$149',
-      queries: '10,000 queries',
-      additionalQueryCost: '$0.0018 per additional query',
-      supportedLanguages: 'Supports English, German, Spanish, French, Albanian, etc.',
-      isPopular: false,
-    },
-    {
-      name: 'Enterprise B',
-      price: '$199',
-      queries: '3,000 queries',
-      additionalQueryCost: '$0.12 per additional query',
-      supportedLanguages: 'Supports English, German, Spanish, French, Albanian, etc.',
-      isPopular: false,
-    },
-    {
-      name: 'Custom',
-      price: 'Contact us',
-      queries: 'Custom tailor package',
-      additionalQueryCost: 'Custom pricing',
-      supportedLanguages: 'Custom language support',
-      isPopular: false,
-    },
-  ];
 
+const PricingComponent = () => {
   return (
     <Box p={5} bg="gray.100">
       <Grid templateColumns={["repeat(1, 1fr)", "repeat(3, 1fr)"]} gap={6} justifyContent="center">
-        {plans.map((plan, index) => (
+        {pricingPlans.map((plan, index) => (
           <PricingCard key={index} plan={plan} />
         ))}
       </Grid>
