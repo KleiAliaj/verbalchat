@@ -1,53 +1,23 @@
 import React from 'react';
-import { Box, Text, Button, Heading, Grid } from '@chakra-ui/react';
-import { pricingPlans } from './__pricingDetails';
+import { pricingPlans } from './__pricingDetails'; // Adjust the import path as necessary
 
-const PricingCard = ({ plan }) => (
-  <div style={{
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    padding: '24px',
-    margin: '16px',
-    background: 'rgb(248, 248, 248)', // Equivalent to gray.50 in Chakra UI
-    boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.15)',
-    textAlign: 'center',
-    position: 'relative',
-    borderRadius: '16px'
-  }}>
-    <Heading as="h3" size="lg" mb={3}>{plan.name}</Heading>
-    <Text fontWeight="bold" fontSize="3xl" mb={3}>
-      {plan.price}
-    </Text>
-    <Text fontSize="md" color="gray.600">
-      {plan.queries}
-    </Text>
-    <Text fontSize="sm" color="gray.600" mb={3}>
-      {plan.additionalQueryCost}
-    </Text>
-    <Text fontSize="sm" color="gray.600" mb={4}>
-      {plan.supportedLanguages}
-    </Text>
-    <Button
-      colorScheme="purple"
-      variant="outline"
-      size="md"
-      mt={4}
-      onClick={() => alert("Contact us for more information!")}
-    >
-      {plan.name === 'Custom' ? 'Contact Us' : 'Get Started'}
-    </Button>
-  </div>
-);
-
-const PricingComponent = () => (
-  <Box p={5} bg="gray.100">
-    <Grid templateColumns={["repeat(1, 1fr)", "repeat(3, 1fr)"]} gap={6} justifyContent="center">
+const PricingComponent = () => {
+  return (
+    <div style={{ padding: '20px' }}>
       {pricingPlans.map((plan, index) => (
-        <PricingCard key={index} plan={plan} />
+        <div key={index} style={{ marginBottom: '20px', border: '1px solid #ddd', padding: '15px', borderRadius: '8px' }}>
+          <h2>{plan.name}</h2>
+          <p>{plan.price}</p>
+          <p>{plan.queries}</p>
+          <p>{plan.additionalQueryCost}</p>
+          <p>{plan.supportedLanguages}</p>
+          <button style={{ padding: '8px 15px', margin: '10px 0', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>
+            {plan.name === 'Custom' ? 'Contact Us' : 'Get Started'}
+          </button>
+        </div>
       ))}
-    </Grid>
-  </Box>
-);
+    </div>
+  );
+};
 
 export default PricingComponent;
