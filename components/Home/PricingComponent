@@ -1,103 +1,54 @@
-import React from 'react';
-import { Flex, Text, Button, Heading, Stack, Badge } from '@chakra-ui/react';
+import React from "react";
+import Image from "next/image";
+import { Box, Flex } from "@chakra-ui/react";
+import BaseLayout from "../Wrapper/BaseLayout";
+import BaseText from "../Wrapper/BaseText";
+import { skillDetails } from "./__skillsDetails";
 
-const PricingCard = ({ plan }) => {
+const Skills = () => {
   return (
-    <Flex
-      direction="column"
-      align="center"
-      p={6}
-      m={4}
-      bg="white"
-      boxShadow="0px 4px 8px rgba(0,0,0,0.2)"
-      textAlign="center"
-      position="relative"
-      w="full"
-      maxW="sm"
-    >
-      {plan.isPopular && (
-        <Badge colorScheme="teal" position="absolute" top="1rem" right="1rem">
-          Most Popular
-        </Badge>
-      )}
-      <Heading as="h3" size="lg" mb={2}>{plan.name}</Heading>
-      <Text fontWeight="bold" fontSize="4xl" mb={2}>
-        {plan.price}
-      </Text>
-      <Text fontSize="md" color="gray.500">
-        {plan.queries}
-      </Text>
-      <Text fontSize="sm" color="gray.500" mb={4}>
-        {plan.additionalQueryCost}
-      </Text>
-      <Text fontSize="sm" color="gray.500" mb={4}>
-        {plan.supportedLanguages}
-      </Text>
-      <Button
-        colorScheme="blue"
-        variant="solid"
-        size="md"
-        mt={4}
-        onClick={() => alert("Contact us for more information!")}
-      >
-        {plan.name === 'Custom' ? 'Contact Us' : 'Get Started'}
-      </Button>
-    </Flex>
+    <React.Fragment>
+      <BaseLayout id="skills">
+        <BaseText
+          id="skills-header-wrapper"
+          firstTitle="Connecting With "
+          secondTitle="Open Source"
+          textIcon="https://ik.imagekit.io/ayushsoni1010/Website/skills?ik-sdk-version=javascript-1.4.3&updatedAt=1669666366824"
+          leftSpacing={20}
+          topSpacing={-4}
+        />
+        <Box
+          boxShadow="2xl"
+          borderRadius="3xl"
+          my="10"
+          bgColor="white"
+          id="skills-wrapper"
+        >
+          <Flex
+            gap={{ base: 16, lg: 16, md: 16, sm: 14, xs: 10 }}
+            wrap="wrap"
+            p={{ base: 10, lg: 10, md: 10, sm: 10, xs: 0 }}
+            pt={{ base: 10, lg: 10, md: 10, sm: 10, xs: 10 }}
+            pb={{ base: 10, lg: 10, md: 10, sm: 10, xs: 10 }}
+            alignItems="center"
+            justify="center"
+          >
+            {skillDetails.map((item) => (
+              <Box key={item.key}>
+                <Image
+                  width="70"
+                  height="70"
+                  src={item.iconURL}
+                  alt={item.name}
+                  aria-label={item.name}
+                  loading="lazy"
+                />
+              </Box>
+            ))}
+          </Flex>
+        </Box>
+      </BaseLayout>
+    </React.Fragment>
   );
 };
-
-
-const PricingComponent = () => {
-  const plans = [
-    {
-      name: 'Basic',
-      price: '$49',
-      queries: '50,000 queries',
-      additionalQueryCost: 'Additional $0.0004 per query above limit',
-      supportedLanguages: 'Supports Mistral languages',
-      isPopular: false,
-    },
-    {
-      name: 'Pro',
-      price: '$69',
-      queries: '5,000 queries',
-      additionalQueryCost: 'Additional $0.004 per query above limit',
-      supportedLanguages: 'Supports English, German, Spanish, French, Albanian, etc.',
-      isPopular: true,
-    },
-    {
-      name: 'Enterprise A',
-      price: '$149',
-      queries: '10,000 queries',
-      additionalQueryCost: '$0.0018 per additional query',
-      supportedLanguages: 'Supports English, German, Spanish, French, Albanian, etc.',
-      isPopular: false,
-    },
-    {
-      name: 'Enterprise B',
-      price: '$199',
-      queries: '3,000 queries',
-      additionalQueryCost: '$0.12 per additional query',
-      supportedLanguages: 'Supports English, German, Spanish, French, Albanian, etc.',
-      isPopular: false,
-    },
-    {
-      name: 'Custom',
-      price: 'Contact us',
-      queries: 'Custom tailor package',
-      additionalQueryCost: 'Custom pricing',
-      supportedLanguages: 'Custom language support',
-      isPopular: false,
-    },
-  ];
-
-  return (
-    <Stack direction={['column', 'row']} spacing={4} wrap="wrap" justify="center" p={5}>
-      {plans.map((plan, index) => (
-        <PricingCard key={index} plan={plan} />
-      ))}
-    </Stack>
-  );
-};
-
-export default PricingComponent;
+export default React.memo(Skills);
