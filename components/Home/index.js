@@ -12,17 +12,16 @@ import {
 import React from "react";
 import NextLink from "next/link";
 import BaseLayout from "../Wrapper/BaseLayout";
-import Timeline from "./Timeline";
-import { productCardDetails } from "./__productCardDetails";
-import { IoIosRocket } from "react-icons/io";
-import SupportedLanguages from "./SupportedLanguages";
 import Skills from "./Skills";
-import PricingComponent from "./PricingComponent";
-
+import Timeline from "./Timeline";
+import SupportedLanguages from "./SupportedLanguages";
+import { productCardDetails } from "./__productCardDetails";
+ import { IoIosRocket } from "react-icons/io";
+ import PricingComponent from "./PricingComponent";
 
 const Home = () => {
   return (
-    <React.Fragment>
+    <React.Fragment> 
       <BaseLayout mt="10" id="stack">
         <Heading
           fontSize={{
@@ -95,12 +94,12 @@ const Home = () => {
           </Grid>
         </Box>
       </BaseLayout>
+      <Skills />
    
-           <Skills />
+     
       {/* <Timeline /> */}
       <SupportedLanguages/>
       <PricingComponent/>
-
       <BaseLayout>
         <Flex
           mb={{ base: 14, lg: 14, md: 14, sm: 20, xs: 20 }}
