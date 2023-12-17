@@ -137,7 +137,7 @@ const Home = () => {
               this.
             </Text>
           </VStack>
-          <NextLink href="/links" passHref>
+          <NextLink href="https://www.verbal.chat/contact" passHref>
             <Button
               leftIcon={<IoIosRocket />}
               colorScheme="white"
