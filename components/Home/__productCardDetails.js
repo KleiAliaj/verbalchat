@@ -126,7 +126,7 @@ At our custom chatbot company, we believe in crafting solutions that are not jus
   {
     title: "Your product ships faster",
     description:
-      "Unlike larger corporations, I am able to provide a faster product development process from start to finish to help your app launch faster.",
+      "Unlike larger corporations, we are able to provide a faster product development process from start to finish to help your app launch faster.",
     svgIcon: (
       <svg
         stroke="white"
