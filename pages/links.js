@@ -18,8 +18,8 @@ const Links = () => {
       <main>
         <BaseLayout>
           <BaseText
-            firstTitle="Links"
-            secondTitle="Connect"
+            firstTitle="Open Source"
+            secondTitle="Alternatives"
             textIcon="https://ik.imagekit.io/ayushsoni1010/Website/notion?updatedAt=1669666487240"
             leftSpacing="4"
           />
