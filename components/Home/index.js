@@ -39,10 +39,8 @@ const Home = () => {
             fontSize={{ base: "sm", md: "md", lg: "lg" }}
             mb={12}
           >
-            From designing the interface to implementing your fully featured
-            application - we provide the full product design process from an
-            idea to a finished high-quality app, polished with fantastic design
-            and running on state-of-the-art software.
+            Transforming your vision into reality, we specialize in crafting custom AI solutions that captivate and engage. Our comprehensive approach covers every step, from concept to the development of polished, high-quality applications that showcase stunning design and utilize cutting-edge software          </Text>
+
           </Text>
           <Grid
             templateColumns={{ base: "1fr", md: "repeat(2, 1fr)", lg: "repeat(3, 1fr)" }}
