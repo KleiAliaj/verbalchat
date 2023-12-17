@@ -1,6 +1,8 @@
   export const profiles = [
     {
       "title": "List Of Prioritary Models: ",
+      "name": "",
+      "link": ""
       
     },
     {
@@ -26,6 +28,8 @@
   ,
   {
     "title": "List Of Open Source Models:",
+    "name": "",
+    "link": ""
   },
   {
     title: "Alpaca (7B)",
