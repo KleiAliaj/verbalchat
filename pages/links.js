@@ -36,7 +36,6 @@ const Links = () => {
                   key={item.name}
                   as="a"
                   target="_blank"
-                  href={item.link}
                   textAlign={"center"}
                 >
                   {item.title}
