@@ -122,7 +122,7 @@ const About = () => {
             <HeroSection />
             <Container maxW="container.xl">
               <GridItemProfile
-                imageSrc="https://i.gifer.com/LCPT.gif"
+                imageSrc="https://media2.giphy.com/media/1BfRG8cK5SPOer97aK/giphy.gif?cid=ecf05e47esd4a3971x9t25hp2335sp28icn6t2ccss3wph8m&ep=v1_gifs_related&rid=giphy.gif&ct=g"
                 description="👨‍🎓 👨‍🎓This is Verbal is a b2b chatbot provider that aims to bring the oportunities and advantages of GPTs to small and medium sized businesses. Verbal leverages open source language models, to provide a competitive price with which different businesses, can take advantage of their data to better connect and serve their customers. Companies in the field of real estate, local markets, online stores, pharmacies, book stores and many more can achieve cheaper, better, and 24h customer service, providing a better experience to their clients, and increasing their profit margins and sales.                "
                 flip={false}
               />
