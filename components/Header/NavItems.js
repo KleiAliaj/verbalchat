@@ -5,7 +5,7 @@ import { HStack, Button, ButtonGroup, useColorMode } from "@chakra-ui/react";
 
 const NavItems = () => {
   const { colorMode } = useColorMode(); // Access the current color mode
-  const buttonTextColor = colorMode === 'dark' ? '#3F91D5' : '#06015B'; // Set text color based on color mode
+  const buttonTextColor = colorMode === 'dark' ? '#B1EDE8' : '#06015B'; // Set text color based on color mode
 
   return (
     <React.Fragment>
