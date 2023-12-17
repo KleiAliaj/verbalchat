@@ -1,98 +1,92 @@
+import React from 'react';
 import {
   Box,
   Grid,
   Heading,
-  Icon,
-  Stack,
   VStack,
   Text,
+  Container,
+  useColorModeValue,
   Flex,
-  Button,
+  Button
 } from "@chakra-ui/react";
-import React from "react";
-import NextLink from "next/link";
 import BaseLayout from "../Wrapper/BaseLayout";
 import Skills from "./Skills";
 import Timeline from "./Timeline";
 import SupportedLanguages from "./SupportedLanguages";
 import { productCardDetails } from "./__productCardDetails";
+import NextLink from "next/link"; // Import NextLink from next/link
 import { IoIosRocket } from "react-icons/io";
 
 
 const Home = () => {
+  const bgCard = useColorModeValue('#F2F4F7', '#2D3748'); // Adjusted for the provided color palette
+  const borderColor = useColorModeValue('#DFEAFF', '#1A202C');
+  const textColor = useColorModeValue('gray.600', 'white');
+
   return (
-    <React.Fragment> 
+    <React.Fragment>
       <BaseLayout mt="10" id="stack">
-        <Heading
-          fontSize={{
-            base: "5xl",
-            md: "5xl",
-            lg: "5xl",
-            sm: "3xl",
-            xs: "3xl",
-          }}
-          fontWeight="bold"
-          textAlign="center"
-        >
-          Verbal offers:
-        </Heading>
-        {/* <Text
-          textAlign="center"
-          fontSize={{ base: "md", md: "md", lg: "md", sm: "sm", xs: "sm" }}
-          my="5"
-          mx={{ lg: 60, md: 60, sm: 0, xs: 0 }}
-        >
-          From designing the interface to implementing your fully featured
-          application - I can provide the full product design process from an
-          idea to a finished hiqh quality app, polished with fantastic design
-          and running on state of the art software.
-        </Text> */}
-        <Box align="center" my={{ base: 20, lg: 20, md: 20, sm: 14, xs: 14 }}>
-          <Grid
-            display={{
-              base: "grid",
-              md: "grid",
-              lg: "grid",
-              sm: "block",
-              xs: "block",
-            }}
-            templateColumns="repeat(2,1fr)"
-            maxW="3xl"
-            gap="20"
+        <Container maxW="container.xl" textAlign="center" py={10}>
+          <Heading
+            fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}
+            fontWeight="bold"
+            mb={6}
           >
-            {productCardDetails.map(
-              (item, index) =>
-                item?.stack && (
-                  <Stack
-                    key={index}
-                    spacing="3"
-                    align="center"
-                    mt={{ md: 0, lg: 0, sm: 10, xs: 10 }}
-                  >
-                    <Box
-                      w="60px"
-                      h="60px"
-                      borderRadius="full"
-                      align="center"
-                      bg={item?.bgColor}
-                      mb="2"
-                      boxShadow="2xl"
-                      transition={"ease-in-out"}
-                      transitionDuration="0.5s"
-                      _hover={{ boxShadow: "outline" }}
-                      cursor="pointer"
+            Verbal Offers
+          </Heading>
+          <Text
+            fontSize={{ base: "sm", md: "md", lg: "lg" }}
+            mb={12}
+          >
+            From designing the interface to implementing your fully featured
+            application - we provide the full product design process from an
+            idea to a finished high-quality app, polished with fantastic design
+            and running on state-of-the-art software.
+          </Text>
+          <Grid
+            templateColumns={{ base: "1fr", md: "repeat(2, 1fr)", lg: "repeat(3, 1fr)" }}
+            gap={8}
+            justifyContent="center"
+          >
+            {productCardDetails.map((item, index) => (
+              <Box
+                key={index}
+                p={6}
+                bg={bgCard}
+                borderWidth="1px"
+                borderColor={borderColor}
+                boxShadow="sm"
+                rounded="lg"
+                _hover={{ boxShadow: "md", borderColor: "blue.500" }}
+                transition="all 0.3s ease-in-out"
+                textAlign="left"
+              >
+                <Heading fontSize="xl" fontWeight="bold" mb={4}>
+                  {item.title}
+                </Heading>
+                <Text fontSize="md" mb={8}>
+                  {item.description}
+                </Text>
+                {item.title === "Over 80 open source models" && (
+                  <NextLink href="/links" passHref>
+                    <Button
+                      as="a" // Make Button act as an anchor tag
+                      leftIcon={<IoIosRocket />}
+                      colorScheme="blue"
+                      size={"lg"}
+                      shadow={"md"}
+                      _hover={{ shadow: "lg" }}
+                      variant="solid"
                     >
-                      <Icon mt="5" w="5" h="5">
-                        {item?.svgIcon}
-                      </Icon>
-                    </Box>
-                    <Heading fontSize="xl">{item?.title}</Heading>
-                    <Text fontSize="sm">{item?.description}</Text>
-                  </Stack>
-                )
-            )}
+                      See More
+                    </Button>
+                  </NextLink>
+                )}
+              </Box>
+            ))}
           </Grid>
-        </Box>
+        </Container>
       </BaseLayout>
       <Skills />
    
