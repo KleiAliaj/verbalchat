@@ -28,18 +28,21 @@ const Home = () => {
     <React.Fragment>
       <BaseLayout mt="10" id="stack">
         <Container maxW="container.xl" textAlign="center" py={10}>
-          <Heading
-            fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}
-            fontWeight="bold"
-            mb={6}
-          >
-            Verbal Offers
-          </Heading>
+                  <Heading
+  fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}
+  fontWeight="bold"
+  mb={6}
+  bgGradient="linear(to-r, #3C8DD5, #5A7FAF)" // Adjusted to a darker gradient
+  bgClip="text"
+  color="transparent"
+>
+  Verbal Offers
+</Heading>
           <Text
             fontSize={{ base: "sm", md: "md", lg: "lg" }}
             mb={12}
           >
-Transforming your vision into reality, we specialize in crafting custom AI solutions that captivate and engage. Our comprehensive approach covers every step, from concept to the development of polished, high-quality applications that showcase stunning design and utilize cutting-edge software          </Text>
+          The most Transformative way to turn vision into reality, we specialize in crafting custom AI solutions that captivate and engage.         </Text>
           <Grid
             templateColumns={{ base: "1fr", md: "repeat(2, 1fr)", lg: "repeat(3, 1fr)" }}
             gap={8}
