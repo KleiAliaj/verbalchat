@@ -1,8 +1,9 @@
 export const profiles = [
   {
     "title": "Our Proprietary models : ",
-    "name": "",
+    "name": "openai/GPT-3",
     "link": ""
+
   },
     {
       "title": "GPT-3 (175B)",
