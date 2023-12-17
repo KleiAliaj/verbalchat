@@ -106,8 +106,8 @@ const Contact = () => {
                       </FormControl>
 
                       <FormControl isInvalid={error.isError && error.errorMessage}>
-                        <FormLabel htmlFor="message">Message</FormLabel>
-                        <Textarea name="message" id="message" value={data.message} onChange={handleChange} />
+                      <FormLabel htmlFor="message">Message</FormLabel>
+<Textarea name="message" id="message" rows="10" cols="50" value={data.message} onChange={handleChange} />
                         {error.isError && error.errorMessage && (
                           <FormErrorMessage>{error.errorMessage}</FormErrorMessage>
                         )}
