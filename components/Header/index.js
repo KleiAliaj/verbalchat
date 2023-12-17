@@ -8,7 +8,8 @@ import {
   Button,
   ButtonGroup,
   IconButton,
-  Image,
+  Text,
+  useColorModeValue
 } from "@chakra-ui/react";
 import { FiMenu } from "react-icons/fi";
 import NavItems from "./NavItems";
@@ -21,6 +22,9 @@ const Header = () => {
   const handleToggle = () => {
     setOpen((prevState) => !prevState);
   };
+
+  // Dynamic text color based on the color mode
+  const logoTextColor = useColorModeValue("blue.500", "white");
 
   return (
     <React.Fragment>
@@ -43,17 +47,26 @@ const Header = () => {
             alignSelf="center"
           >
             <Stack flex={{ base: 1, md: 1 }} direction="row" align="center">
-              <NextLink
-                href="/"
-                style={{ textDecoration: "none", cursor: "pointer" }}
-              >
-             <Image
-   src="logo.png"
-  alt="Brand Logo"
-  w={150}
-  h={150}  
+              {/* Commented out Image Logo */}
+              {/* <NextLink href="/" passHref>
+                <Image src="logo.png" alt="Brand Logo" w={150} h={150} cursor="pointer" />
+              </NextLink> */}
+              
+              {/* Text-based Logo */}
+              <NextLink href="/" passHref>
+              <Text
+  as="a"
+  fontSize={{ base: "3xl", md: "4xl" }}
+  fontWeight="extrabold"
+  letterSpacing="wider"
+  color={logoTextColor}
+  bgGradient="linear(to-l, #81E6D9, #3C8DD5)"
+  bgClip="text"
   cursor="pointer"
-  />
+  _hover={{ textDecoration: "underline" }}
+>
+  VERBAL
+</Text>
 
               </NextLink>
             </Stack>
@@ -64,55 +77,15 @@ const Header = () => {
               direction="row"
               align="center"
               spacing="3"
-              mx={{
-                base: 0,
-              }}
+              mx={{ base: 0 }}
             >
-              <ColorModeSwitcher
-                justifySelf="flex-end"
-                display={{
-                  base: "none",
-                  md: "inline-flex",
-                  sm: "inline-flex",
-                  xs: "inline-flex",
-                }}
-                _focus={{ boxShadow: "outline" }}
-              />
+              <ColorModeSwitcher justifySelf="flex-end" {...colorModeSwitcherProps} />
               <Box display={{ md: "none", lg: "none", sm: "flex", xs: "flex" }}>
-                <IconButton
-                  variant="outline"
-                  icon={<FiMenu />}
-                  colorScheme="teal"
-                  onClick={handleToggle}
-                  border="2px"
-                  aria-label={"Hamburger Menu"}
-                  _focus={{ boxShadow: "outline" }}
-                />
+                <IconButton icon={<FiMenu />} onClick={handleToggle} {...iconButtonProps} />
               </Box>
-              <ButtonGroup
-                display={{ base: "flex", md: "flex", sm: "none", xs: "none" }}
-              >
-                {/* <Button
-                  as="a"
-                  target="_blank"
-                  href="/resume"
-                  border="2px"
-                  variant="outline"
-                  size="md"
-                  colorScheme="teal"
-                >
-                  Resume
-                </Button> */}
-                <Button
-                  colorScheme="teal"
-                  target="_blank"
-                  as="a"
-                  href="https://cal.com/verbal/"
-                  variant="solid"
-                  size="md"
-                  bgGradient="linear(to-tr, blue.500, blue.300)"
-                >
-                  Schedule a Meeting
+              <ButtonGroup display={{ base: "flex", md: "flex", sm: "none", xs: "none" }}>
+                <Button as="a" href="https://cal.com/verbal/" {...demoButtonProps}>
+                  Request a Demo
                 </Button>
               </ButtonGroup>
             </Stack>
@@ -125,3 +98,29 @@ const Header = () => {
 };
 
 export default Header;
+
+// Additional props for components for better readability
+const colorModeSwitcherProps = {
+  display: {
+    base: "none",
+    md: "inline-flex",
+    sm: "inline-flex",
+    xs: "inline-flex",
+  },
+  _focus: { boxShadow: "outline" },
+};
+
+const iconButtonProps = {
+  variant: "outline",
+  border: "2px",
+  ariaLabel: "Hamburger Menu",
+  _focus: { boxShadow: "outline" },
+};
+
+const demoButtonProps = {
+  colorScheme: "teal",
+  target: "_blank",
+  variant: "solid",
+  size: "md",
+  bgGradient: "linear(to-tr, blue.500, blue.300)",
+};
