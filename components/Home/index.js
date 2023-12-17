@@ -39,28 +39,25 @@ const Home = () => {
             fontSize={{ base: "sm", md: "md", lg: "lg" }}
             mb={12}
           >
-            Transforming your vision into reality, we specialize in crafting custom AI solutions that captivate and engage. Our comprehensive approach covers every step, from concept to the development of polished, high-quality applications that showcase stunning design and utilize cutting-edge software          </Text>
-
-          </Text>
+Transforming your vision into reality, we specialize in crafting custom AI solutions that captivate and engage. Our comprehensive approach covers every step, from concept to the development of polished, high-quality applications that showcase stunning design and utilize cutting-edge software          </Text>
           <Grid
             templateColumns={{ base: "1fr", md: "repeat(2, 1fr)", lg: "repeat(3, 1fr)" }}
             gap={8}
             justifyContent="center"
           >
-            {productCardDetails.map((item, index) => (
-              <Box
-                key={index}
-                p={6}
-                bg={bgCard}
-                borderWidth="1px"
-                borderColor={borderColor}
-                boxShadow="sm"
-                rounded="lg"
-                _hover={{ boxShadow: "md", borderColor: "blue.500" }}
-                transition="all 0.3s ease-in-out"
-                textAlign="left"
-              >
-                <Heading fontSize="xl" fontWeight="bold" mb={4}>
+         {productCardDetails.map((item, index) => (
+  <Box
+    key={index} // Corrected typo here
+    p={6}
+    bg={bgCard}
+    borderWidth="1px"
+    borderColor={borderColor}
+    boxShadow="sm"
+    rounded="lg"
+    _hover={{ boxShadow: "md", borderColor: "blue.500" }}
+    transition="all 0.3s ease-in-out"
+    textAlign="left"
+  > <Heading fontSize="xl" fontWeight="bold" mb={4}>
                   {item.title}
                 </Heading>
                 <Text fontSize="md" mb={8}>
@@ -87,7 +84,7 @@ const Home = () => {
         </Container>
       </BaseLayout>
       <Skills />
-   
+
      
       {/* <Timeline /> */}
       <SupportedLanguages/>
