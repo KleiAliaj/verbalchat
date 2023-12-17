@@ -145,30 +145,37 @@ const Hero = () => {
           Empower Your Enterprise with Smart Dialogues Fueled by Verbal.chat
 </Text>
 
-            <ButtonGroup gap="1">
-              <Button
-                as="a"
-                target="_blank"
-                href="mailto:verbal@gmail.com"
-                border="2px"
-                variant="outline"
-                size={{ base: "md", md: "md", sm: "sm" }}
-                colorScheme="teal"
-              >
-                Call Us
-              </Button>
-              <Button
-                colorScheme="teal"
-                target="_blank"
-                as="a"
-                href="https://cal.com/verbal/"
-                variant="solid"
-                size={{ base: "md", md: "md", sm: "sm" }}
-                bgGradient="linear(to-tr, blue.500, blue.300)"
-              >
-                Schedule a Meeting
-              </Button>
-            </ButtonGroup>
+<ButtonGroup gap="1">
+  <Button
+    as="a"
+    target="_blank"
+    href="mailto:verbal@gmail.com"
+    border="2px"
+    borderColor="blue.500" // Border color updated
+    variant="outline"
+    size={{ base: "md", md: "md", sm: "sm" }}
+    color="blue.500" // Text color updated
+    _hover={{
+      bg: "blue.50", // Background color on hover
+    }}
+  >
+    Call Us
+  </Button>
+  <Button
+    target="_blank"
+    as="a"
+    href="https://cal.com/verbal/"
+    variant="solid"
+    size={{ base: "md", md: "md", sm: "sm" }}
+    bg="blue.500" // Background color updated
+    color="white" // Text color for solid button
+    _hover={{
+      bg: "blue.600", // Darker background color on hover
+    }}
+  >
+    Schedule a Meeting
+  </Button>
+</ButtonGroup>
             <Stack py="4">
               <SocialProfiles />
             </Stack>
