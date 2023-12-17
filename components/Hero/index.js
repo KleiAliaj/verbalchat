@@ -46,7 +46,7 @@ const ChatbotIframe = () => {
       </style>
       <div className="iframe-container">
         <iframe
-          src="https://verbalchat.armirceliku.repl.co/"
+          src="https://llama2.kleyaliaj.repl.co/"
           title="Chatbot"
           loading="lazy"
           frameBorder="0"
@@ -105,7 +105,7 @@ const Hero = () => {
                 <Text colorScheme="black">Leverage</Text>
                 <Stack display="flex" direction="row">
                 <Text
-                  bgGradient="linear(to-tr, blue.500, blue.300)"
+                    bgGradient="linear(to-tr, blue.500, blue.300)"
                   bgClip="text"
                 >
                 GPT's
