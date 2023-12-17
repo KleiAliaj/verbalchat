@@ -166,7 +166,7 @@ const Hero = () => {
                 size={{ base: "md", md: "md", sm: "sm" }}
                 bgGradient="linear(to-tr, blue.500, blue.300)"
               >
-                Schedule a Meetinghhh
+                Schedule a Meeting
               </Button>
             </ButtonGroup>
             <Stack py="4">
