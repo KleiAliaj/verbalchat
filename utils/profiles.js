@@ -1,6 +1,8 @@
 export const profiles = [
   {
     "title": "Our Proprietary models : ",
+    "name": "",
+    "link": ""
 
   },
     {
