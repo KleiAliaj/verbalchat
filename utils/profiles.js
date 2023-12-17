@@ -1,5 +1,9 @@
 export const profiles = [
-  
+  {
+    "title": "Our Proprietary models : ",
+    "name": "openai/GPT-3",
+    "link": "https://openai.com/gpt-3/"
+  },
     {
       "title": "GPT-3 (175B)",
       "name": "openai/GPT-3",
@@ -16,7 +20,7 @@ export const profiles = [
       "link": "https://platform.openai.com/docs/guides/gpt"
     },
     {
-      "title": "GPT-4 (175B)",
+      "title": "GPT-4",
       "name": "openai/GPT-4",
       "link": "https://openai.com/gpt-4/"
     },
@@ -26,7 +30,11 @@ export const profiles = [
       "link": ""
     }
   ,
-  
+  {
+    "title": "Our Open Source models : ",
+    "name": "openai/GPT-3",
+    "link": "https://openai.com/gpt-3/"
+  },
   {
     title: "Alpaca (7B)",
     name: "togethercomputer/alpaca-7b",
