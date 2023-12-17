@@ -2,7 +2,7 @@ export const productCardDetails = [
   {
     title: "Cheapest price in the market",
     description:
-      "Starting at only $69 a month!",
+      "Starting at only $49 a month!",
     svgIcon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -107,8 +107,7 @@ export const productCardDetails = [
   {
     title: "Closer involvement",
     description:
-      "I involve my clients closely in the design and development process in order to deliver a product that best matches your expectations.",
-    svgIcon: (
+At our custom chatbot company, we believe in crafting solutions that are not just innovative but also intimately aligned with our clients' visions. Our approach is deeply collaborative – we engage you every step of the way, ensuring that your insights and feedback are integral to the development process.    svgIcon: (
       <svg
         stroke="white"
         fill="white"
