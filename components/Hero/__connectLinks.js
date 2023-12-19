@@ -1,4 +1,4 @@
-import { FaLinkedinIn } from "react-icons/fa";
+import { FaFacebook, FaLinkedinIn } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { FiInstagram } from "react-icons/fi";
@@ -7,30 +7,21 @@ import { FaYoutube } from "react-icons/fa";
 
 export const connectionLinks = [
   {
-    name: "LinkedIn",
-    // link: "https://www.linkedin.com/in/ayushsoni1010/",
+    name: "Linkedin",
+    link: "https://www.linkedin.com/company/verbal-chat",
     icon: <FaLinkedinIn />,
   },
   {
-    name: "Twitter",
-    // link: "https://twitter.com/ayushsoni1010",
-    icon: <FaTwitter />,
-  },
-  {
-    name: "GitHub",
-    // link: "https://github.com/ayushsoni1010",
-    icon: <FaGithub />,
+    name: "Facebook",
+    link: "https://www.facebook.com/profile.php?id=61554385696724",
+    icon: <FaFacebook />,
   },
   {
     name: "Instagram",
-    // link: "https://www.instagram.com/aayushsoni1010",
+    link: "https://www.instagram.com/verbal.chat/",
     icon: <FiInstagram />,
   },
-  {
-    name: "Youtube",
-    // link: "https://youtube.com/@ayushsoni1010",
-    icon: <FaYoutube />,
-  },
+
   {
     name: "Mail",
     // link: "mailto:ayushsoni1010.work@gmail.com",
