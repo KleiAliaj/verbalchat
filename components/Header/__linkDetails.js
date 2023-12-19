@@ -8,7 +8,7 @@ export const linkDetails = [
     link: "/about",
   },
   {
-    name: "Products and use cases",
+    name: "Blogs",
     link: "/blogs",
   },
   // {
@@ -17,7 +17,7 @@ export const linkDetails = [
   // },
   {
     name: "Playground",
-    link: "http://verbalchat.armirceliku.repl.co/",
+    link: "https://verbalchat.kleialia8.repl.co/",
   },
   {
     name: "Contact",
