@@ -46,7 +46,7 @@ const ChatbotIframe = () => {
       </style>
       <div className="iframe-container">
         <iframe
-          src="https://verbalchat.kleialia8.repl.co/"
+          src="https://35f4e104-fa67-4631-9fc3-6b7765d2ad4a-00-317rshq06gb2n.worf.replit.dev/"
           title="Chatbot"
           loading="lazy"
           frameBorder="0"
