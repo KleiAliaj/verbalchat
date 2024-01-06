@@ -17,7 +17,7 @@ export const linkDetails = [
   // },
   {
     name: "Playground",
-    link: "https://verbalchat.kleialia8.repl.co/",
+    link: "https://35f4e104-fa67-4631-9fc3-6b7765d2ad4a-00-317rshq06gb2n.worf.replit.dev/",
   },
   {
     name: "Contact",
