@@ -46,7 +46,7 @@ const ChatbotIframe = () => {
       </style>
       <div className="iframe-container">
         <iframe
-          src="https://dialogg-production.up.railway.app/chatbot/97a25698-69ad-45d1-adba-cd100991defe/"
+          src="/"
           title="Chatbot"
           loading="lazy"
           frameBorder="0"
