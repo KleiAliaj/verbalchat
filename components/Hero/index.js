@@ -46,7 +46,7 @@ const ChatbotIframe = () => {
       </style>
       <div className="iframe-container">
         <iframe
-          src="https://verbal.up.railway.app/chatbot/bdf4c1c0-4730-4285-b2af-b8df994816e8/"
+          src="https://verbal.up.railway.app/chatbot/bdf4c1c0-4730-4285-b2af-b8df994816e8"
           title="Chatbot"
           loading="lazy"
           frameBorder="0"
